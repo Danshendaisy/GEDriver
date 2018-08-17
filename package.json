@@ -2,6 +2,7 @@
   "name": "driverapp",
   "version": "0.1.0",
   "private": true,
+   "proxy":"https://golden-express.herokuapp.com/",
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.4.2",

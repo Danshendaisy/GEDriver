@@ -9,7 +9,11 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get(`http://golden-express.herokuapp.com/driverOrders`)
+    axios.get(`/driverOrders`,{
+      headers: {'Access-Control-Allow-Origin': '*' },
+       crossdomain: true,
+      
+      })
     .then(res => {
       console.log(res)
       const orders= res.data.order
@@ -20,10 +24,12 @@ class App extends Component {
 
   render() {
     return (
-      
+      <div>
+       <h3>Order Information</h3>
         <div style={{marginLeft: 10, alignItems:'flex-start', justifyContent:'center'}}>
           {this.state.orders.map(order =>
-            <p style={{fontWeight:'bold'}}>{order.userName} phone: {order.phone}
+            <p style={{fontWeight:'bold'}}>Name: {order.userName}, 
+            phone: {order.phone}, address:{order.address}
             <ul>
               {order.items.map(item=>
               <li>{item.name} {item.count}</li>)}
@@ -31,7 +37,7 @@ class App extends Component {
           </p>
           )}
         </div>
-      
+      </div>
     );
   }
 }
