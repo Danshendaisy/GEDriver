@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get(`/driverOrders`,
+    axios.get(`http://golden-express.herokuapp.com/driverOrders`,
     { crossdomain: true })
     .then(res => {
       console.log(res)
